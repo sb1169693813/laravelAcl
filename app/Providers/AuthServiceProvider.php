@@ -25,7 +25,11 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(GateContract $gate)
     {
         $this->registerPolicies($gate);
-
+        //权限否定
+        $gate->define('show-post',function ($user,$post){
+            //return $user->id == $post->user_id;
+            return $user->owns($post);
+        });
         //
     }
 }
