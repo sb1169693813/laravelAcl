@@ -13,7 +13,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        //'App\Model' => 'App\Policies\ModelPolicy',
+        'App\Post' => 'App\Policies\PostPolicy',
     ];
 
     /**
@@ -26,10 +27,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
         //权限否定
-        $gate->define('show-post',function ($user,$post){
-            //return $user->id == $post->user_id;
-            return $user->owns($post);
-        });
+//        $gate->define('show-post',function ($user,$post){
+//            //return $user->id == $post->user_id;
+//            return $user->owns($post);
+//        });
         //
     }
 }

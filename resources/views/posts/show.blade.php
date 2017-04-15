@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>{{$post->title}}</h1>
-    @can('show-post',$post)
+    @can('update',$post)
         <a href="#">编辑视频</a>
     @endcan
 </body>
