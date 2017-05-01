@@ -20,15 +20,9 @@ class PostPolicy
         //
     }
 
-    //编辑权限验证
+    //编辑权限
     public function update(User $user,Post $post)
     {
         return $user->owns($post);
     }
-    //还可以写权限规则
-    public function store()
-    {
-
-    }
-
 }

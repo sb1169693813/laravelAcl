@@ -52,19 +52,16 @@ class PostsController extends Controller
     {
         //
         $post = Post::findOrFail($id);
-        //登录的用户
-        \Auth::loginUsingId(2);
-        //$this->authorize('show-post',$post);
-        //不行，报错 use Gate;就好了
-//        if(Gate::denies('show-post',$post))
+        \Auth::loginUsingId(1);
+//        $this->authorize('showPost',$post);
+//        if(Gate::denies('showPost',$post))
 //        {
-//            abort(403,'sorry');
+//            abort('403','sorry');
 //        }
         if(Gate::denies('update',$post))
         {
-            abort(403,'sorry');
+            abort('403','sorry');
         }
-//        return $post->title;
         return view('posts.show',compact('post'));
     }
 

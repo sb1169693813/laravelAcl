@@ -9,8 +9,11 @@
 </head>
 <body>
     <h1>{{$post->title}}</h1>
+    {{--@can('showPost',$post)--}}
+        {{--<a href="#">编辑文章</a>--}}
+        {{--@endcan--}}
     @can('update',$post)
-        <a href="#">编辑视频</a>
-    @endcan
+        <a href="#">编辑文章</a>
+        @endcan
 </body>
 </html>
